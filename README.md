@@ -5,7 +5,7 @@ team in the Robocup's @home competition.
 
 ### States
 
-- WaitTopic
+- **WaitTopic**
     - outcomes: ['succeeded', 'error']
 
     Waits for a topic to be published.
@@ -13,6 +13,6 @@ team in the Robocup's @home competition.
 
 ### Machines
 
-- boiler_plate
+- **boiler_plate**
 
     Only uses the WaitHotword state. Used for development guidance purposes only.
