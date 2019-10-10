@@ -6,7 +6,7 @@ team in the Robocup's @home competition.
 ### States
 
 - **WaitTopic**
-    - outcomes: ['succeeded', 'error']
+    - outcomes: [ 'succeeded', 'error' ]
     - userdata: None
 
     Waits for a topic to be published.
