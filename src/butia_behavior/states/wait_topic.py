@@ -3,10 +3,10 @@ import rospy
 from std_msgs.msg import Empty
 import threading
 
-class WaitHotwordState(smach.State):
-  def __init__(self):
+class WaitTopicState(smach.State):
+  def __init__(self, topic):
     smach.State.__init__(self, outcomes=['succeeded', 'error'])
-    self.subscriber = rospy.Subscriber('butia/wakeup', Empty, self.callback)
+    self.subscriber = rospy.Subscriber(topic, Empty, self.callback)
     self.event = threading.Event()
 
   def execute(self, userdata):

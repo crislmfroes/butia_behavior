@@ -1,1 +1,1 @@
-from butia_behavior.states.wait_hotword import WaitHotwordState
+from butia_behavior.states.wait_topic import WaitTopicState
