@@ -1,7 +1,7 @@
 import smach
 import rospy
 
-class GetPosesState(smach.State):
+class SetFixedTargetState(smach.State):
   def __init__(self, target):
     smach.State.__init__(self, outcomes=['succeeded', 'error'], 
                                output_keys=['query'])
