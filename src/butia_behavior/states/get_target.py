@@ -11,10 +11,14 @@ class GetTargetState(smach.State):
     self.client = rospy.ServiceProxy(self.service, GetPoses)
 
   def execute(self, userdata):
+    rospy.loginfo("Get Target State.")
     rospy.wait_for_service(self.service)
     try:
+      print('target/' + userdata.target + '/pose')
       response = self.client('target/' + userdata.target + '/pose')
-      userdata.pose = response.poses[0]
+      if len(response.poses) == 0:
+        return 'error'
+      userdata.pose = response.poses[0].pose
       return 'succeeded'
     except rospy.ServiceException, e:
       print "Service call failed: %s"%e

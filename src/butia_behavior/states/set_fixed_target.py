@@ -5,9 +5,10 @@ class SetFixedTargetState(smach.State):
   def __init__(self, target):
     smach.State.__init__(self, outcomes=['succeeded', 'error'], 
                                output_keys=['target'])
-    self.query = 'target/' + target + '/pose'
+    self.target = target
 
   def execute(self, userdata):
-    userdata.target = self.query
+    rospy.loginfo("Set Fixed Target State.")
+    userdata.target = self.target
     return 'succeeded'
     

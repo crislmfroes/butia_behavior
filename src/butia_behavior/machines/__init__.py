@@ -1,3 +1,3 @@
-from butia_behavior.machines.goto_fixed import GoToFixedMachine
-from butia_behavior.machines.goto import GoToMachine
-from butia_behavior.machines.wait_door import WaitDoorMachine
+from butia_behavior.machines.goto_fixed import getGoToFixedMachine
+from butia_behavior.machines.goto import getGoToMachine
+from butia_behavior.machines.wait_door import getWaitDoorMachine

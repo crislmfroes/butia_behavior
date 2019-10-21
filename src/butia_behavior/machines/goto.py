@@ -1,9 +1,11 @@
 import smach
 import rospy
 
-class GoToMachine(smach.StateMachine):
-  def __init__(self, target):
-    smach.StateMachine.__init__(self, outcomes=['succeeded','aborted','preempted'], input_keys=['target'])
+from butia_behavior.states import SetFixedTargetState, GetTargetState, GoToState
+
+def getGoToMachine():
+  sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted'])
+  with sm:
     smach.StateMachine.add(
         'GET_TARGET',
         GetTargetState(),
@@ -28,6 +30,4 @@ class GoToMachine(smach.StateMachine):
         'pose':'pose'
         }
     )
-
-  def execute(self):
-    return smach.StateMachine.execute()
+  return sm
