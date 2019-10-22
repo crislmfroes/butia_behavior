@@ -1,7 +1,7 @@
 import smach
 import rospy
 
-from butia_behavior.states import WaitTopicState, PublisherState
+from butia_behavior.states import WaitTopicState, PublisherIdState
 
 def getSpeechMachine():
   sm = smach.StateMachine.__init__(self, outcomes=['succeeded', 'error'])

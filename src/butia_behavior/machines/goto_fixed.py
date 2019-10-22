@@ -2,22 +2,22 @@ import smach
 
 import rospy
 
-from butia_behavior.states import SetFixedTargetState, GetTargetState, GoToState
+from butia_behavior.states import SetFixedTargetKeyState, GetPoseState, GoToState
 
 def getGoToFixedMachine(target):
   sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted'])
   with sm:
     smach.StateMachine.add(
-        'SET_TARGET',
-        SetFixedTargetState(target),
+        'SET_KEY',
+        SetFixedTargetKeyState(target),
         transitions={
-        'succeeded': 'GET_TARGET',
+        'succeeded': 'GET_POSE',
         'error': 'aborted'
         }
     )
     smach.StateMachine.add(
-        'GET_TARGET',
-        GetTargetState(),
+        'GET_POSE',
+        GetPoseState(),
         transitions={
         'succeeded': 'GOTO',
         'error': 'aborted'

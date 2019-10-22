@@ -2,8 +2,7 @@
 import rospy
 import smach
 
-from butia_behavior.states import SetFixedTargetState
-from butia_behavior.machines import getGoToFixedMachine, getGoToMachine
+from butia_behavior.machines import getGoToFixedMachine
 
 if __name__ == '__main__':
   rospy.init_node('goto_two_points')

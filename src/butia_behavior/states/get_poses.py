@@ -11,10 +11,11 @@ class GetPosesState(smach.State):
     self.client = rospy.ServiceProxy(self.service, GetPoses)
 
   def execute(self, userdata):
-    rospy.loginfo("Get Poses State.")
     rospy.wait_for_service(self.service)
     try:
       response = self.client(userdata.query)
+      if len(response.poses) == 0:
+        return 'error'
       userdata.poses = response.poses
       return 'succeeded'
     except rospy.ServiceException, e:

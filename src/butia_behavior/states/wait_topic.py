@@ -10,7 +10,6 @@ class WaitTopicState(smach.State):
     self.event = threading.Event()
 
   def execute(self, userdata):
-    rospy.loginfo("Wait Topic State.")
     self.event.clear()
     self.event.wait()
     if self.event.is_set():
