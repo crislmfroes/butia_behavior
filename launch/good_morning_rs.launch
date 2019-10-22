@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find butia_world)/launch/pose.launch" />
+  <include file="$(find budia_navigation_launchfiles)/launch/navigate_patrol_sick.launch" />
+  <node name="hotword_detector_node" pkg="butia_speech" type="detector_hotword_node.py" output="screen" />
+  <node name="text_to_speech" pkg="butia_speech" type="speech_synthesizer.py" output="screen" />
+</launch>
