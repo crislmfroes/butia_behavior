@@ -2,7 +2,8 @@ import smach
 
 import rospy
 
-from butia_behavior.states import SetFixedQueryState, GetPoseState, GoToState, GetKeyState, TrackPersonState
+from butia_behavior.states import SetFixedQueryState, GetPoseState, GetKeyState, TrackPersonState
+from . import getGoToMachine
 
 def getFollowPersonMachine():
   sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted'])
@@ -30,7 +31,7 @@ def getFollowPersonMachine():
         'GET_KEY',
         GetKeyState(),
         transitions={
-        'succeeded': 'GET_POSE',
+        'succeeded': 'GOTO',
         'error': 'aborted'
         },
         remapping={
@@ -39,27 +40,15 @@ def getFollowPersonMachine():
         }
     )
     smach.StateMachine.add(
-        'GET_POSE',
-        GetPoseState(),
-        transitions={
-        'succeeded': 'GOTO',
-        'error': 'aborted'
-        },
-        remapping={
-        'key': 'key',
-        'pose': 'pose'
-        }
-    )
-    smach.StateMachine.add(
         'GOTO',
-        GoToState(),
+        getGoToMachine(),
         transitions={
         'succeeded': 'SET_QUERY',
         'aborted': 'SET_QUERY',
         'preempted': 'preempted'
         },
         remapping={
-        'pose': 'pose'
+        'key': 'key'
         }
     )
   return sm

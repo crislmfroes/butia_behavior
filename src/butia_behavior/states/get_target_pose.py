@@ -2,7 +2,7 @@ import smach
 import rospy
 from butia_world_msgs.srv import GetPose
 
-class GetPoseState(smach.State):
+class GetTargetPoseState(smach.State):
   def __init__(self, service='/butia_world/get_pose'):
     smach.State.__init__(self, outcomes=['succeeded', 'error'], 
                                input_keys=['key'],
@@ -13,8 +13,7 @@ class GetPoseState(smach.State):
   def execute(self, userdata):
     rospy.wait_for_service(self.service)
     try:
-      print(userdata.key)
-      response = self.client(userdata.key + '/pose')
+      response = self.client('target/' + userdata.key + '/pose')
       userdata.pose = response.pose
       return 'succeeded'
     except rospy.ServiceException, e:
