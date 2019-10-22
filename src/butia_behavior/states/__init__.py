@@ -1,3 +1,13 @@
+from butia_behavior.states.get_pose import GetPoseState
+from butia_behavior.states.get_target_pose import GetTargetPoseState
+from butia_behavior.states.goto import GoToState
+from butia_behavior.states.set_fixed_query import SetFixedQueryState
+from butia_behavior.states.wait_topic import WaitTopicState
+from butia_behavior.states.publisher_id import PublisherIdState
+from butia_behavior.states.track_person import TrackPersonState
+from butia_behavior.states.get_key import GetKeyState
+from butia_behavior.states.select_id import SelectIdState
+
 # from butia_behavior.states.get_poses import GetPosesState
 # from butia_behavior.states.get_target import GetTargetState
 # from butia_behavior.states.goto import GoToState
