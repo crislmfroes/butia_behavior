@@ -1,6 +1,7 @@
 import smach
 import rospy
-from std_msgs.msg import Empty
+
+from butia_behavior.states import WaitTopicState
 
 def getWaitDoorMachine():
   sm = smach.StateMachine.__init__(self, outcomes=['succeeded', 'error'])

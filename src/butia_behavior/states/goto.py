@@ -12,7 +12,6 @@ class GoToState(smach_ros.SimpleActionState):
     self.frame = frame
 
   def __goal_cb(self, userdata, old_goal):
-    rospy.loginfo("GoTo State.")
     goal = MoveBaseGoal()
     goal.target_pose.header.frame_id = self.frame
     goal.target_pose.header.stamp = rospy.Time.now()
