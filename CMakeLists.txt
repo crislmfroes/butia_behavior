@@ -158,7 +158,9 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-install(PROGRAMS nodes/boiler_plate.py
+install(PROGRAMS
+  nodes/boiler_plate.py
+  nodes/good_morning_rs.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
