@@ -3,6 +3,7 @@ import rospy
 import smach
 import operator
 
+from butia_behavior.machines import getWaitDoorMachine
 from butia_behavior.machines.classes_count import getClassesCountMachine
 from butia_behavior.states import SaySomethingUDState, PrepareSpeechState
 
