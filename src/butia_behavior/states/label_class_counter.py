@@ -41,6 +41,7 @@ class ClassesCountHistoryState(smach.State):
     self.frame_counter += 1
     if self.frame_counter >= self.window_size:
       print(self.counts_history)
+      self.subscriber.unregister()
       self.event.set()
 
 class ClassesHistoryReductorState(smach.State):

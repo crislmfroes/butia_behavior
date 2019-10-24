@@ -5,7 +5,7 @@ import rospy
 from butia_behavior.states import ClassesCountHistoryState, ClassesHistoryReductorState
 
 def getClassesCountMachine(topic, window_size, reductor):
-  sm = smach.StateMachine(outcomes=['succeeded', 'error'])
+  sm = smach.StateMachine(outcomes=['succeeded', 'error'], output_keys=['registers'])
   with sm:
     smach.StateMachine.add(
       'COUNT_HISTORY',
@@ -21,6 +21,9 @@ def getClassesCountMachine(topic, window_size, reductor):
       transitions={
         'succeeded': 'succeeded',
         'error': 'error'
+      },
+      remapping={
+        'classes_count': 'registers'
       }
     )
   return sm

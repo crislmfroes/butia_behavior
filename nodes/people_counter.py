@@ -13,7 +13,7 @@ if __name__ == '__main__':
   rospy.init_node('object_counter')
   sm = smach.StateMachine(outcomes=['succeeded', 'error'])
   with sm:
-    sm1 = getClassesCountMachine('butia_vision/or/object_recognition', 20, max)
+    sm1 = getClassesCountMachine('butia_vision/or/people_detection', 20, max)
     smach.StateMachine.add(
       'COUNT_OBJECTS',
       sm1,
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     )
     smach.StateMachine.add(
       'PREPARE_SPEECH',
-      PrepareSpeechState('I identified','{y} of {x}', 'in the shelf.'),
+      PrepareSpeechState('I identified','{y} {x}', 'in the room'),
       transitions={
         'succeeded': 'SAY_SOMETHING',
         'error': 'error'

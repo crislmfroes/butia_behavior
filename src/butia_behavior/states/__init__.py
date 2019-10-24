@@ -11,3 +11,5 @@ from butia_behavior.states.say_something import SaySomethingState
 from butia_behavior.states.wait_topic import WaitTopicState
 from butia_behavior.states.publisher import PublisherState
 from butia_behavior.states.label_class_counter import ClassesCountHistoryState, ClassesHistoryReductorState
+from butia_behavior.states.say_something_ud import SaySomethingUDState
+from butia_behavior.states.prepare_speech import PrepareSpeechState
