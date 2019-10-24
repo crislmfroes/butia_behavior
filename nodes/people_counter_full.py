@@ -3,6 +3,7 @@ import rospy
 import smach
 import operator
 
+from butia_behavior.machines import getWaitDoorMachine, getGoToFixedMachine
 from butia_behavior.machines.classes_count import getClassesCountMachine
 from butia_behavior.states import SaySomethingUDState, PrepareSpeechState
 
@@ -18,7 +19,7 @@ if __name__ == '__main__':
       'succeeded': 'GOTO_1',
       'error': 'aborted',
     })
-    sm2 = getGoToFixedMachine('shelf')
+    sm2 = getGoToFixedMachine('observation')
     smach.StateMachine.add('GOTO_1', sm2, transitions={
       'succeeded': 'COUNT_OBJECTS',
       'aborted': 'aborted',
