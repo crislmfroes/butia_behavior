@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find butia_world)/launch/pose_people.launch" />
+  <include file="$(find butia_door_checking)/launch/wait_door.launch" />
+
+  <node name="speech_synthesizer_node" pkg="butia_speech" type="speech_synthesizer.py" output="screen" />
+
+  <machine name="jetson" address="192.168.0.190" env-loader="/opt/ros/melodic/env.sh"/>
+  <include file="~/home_sd/Workspace/catkin_ws/src/butia_vision/butia_vision_launchfiles/people.launch" machine="jetson"/>
+
+  <node name="object_counter_full" pkg="butia_behavior" type="object_counter_full.py" output="screen" />
+</launch>
