@@ -18,11 +18,11 @@ class ClassesCountHistoryState(smach.State):
     self.topic = topic
     self.window_size = window_size
     self.event = threading.Event()
-    self.subscriber = rospy.Subscriber(topic, Recognitions, self._on_recognitions)
     self.counts_history = defaultdict(list)
     self.frame_counter = 0
   
   def execute(self, userdata):
+    self.subscriber = rospy.Subscriber(self.topic, Recognitions, self._on_recognitions)
     self.event.clear()
     self.event.wait()
     if self.event.is_set():
