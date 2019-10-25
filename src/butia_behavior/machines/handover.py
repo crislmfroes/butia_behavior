@@ -45,6 +45,14 @@ def getHandOverMachine():
         'GOTO_GRIPPER_FIRST2',
         getGoToGripperMachine(1),
         transitions={
+        'succeeded': 'GOTO_GRIPPER_INITIAL2',
+        'error': 'error'
+        }
+    )
+    smach.StateMachine.add(
+        'GOTO_GRIPPER_INITIAL2',
+        getGoToGripperMachine(0),
+        transitions={
         'succeeded': 'CLOSE_GRIPPER',
         'error': 'error'
         }
@@ -53,16 +61,9 @@ def getHandOverMachine():
         'CLOSE_GRIPPER',
         getCloseGripperMachine(),
         transitions={
-        'succeeded': 'GOTO_GRIPPER_INITIAL2',
-        'error': 'error'
-        },
-    )
-    smach.StateMachine.add(
-        'GOTO_GRIPPER_INITIAL2',
-        getGoToGripperMachine(0),
-        transitions={
         'succeeded': 'succeeded',
         'error': 'error'
         }
     )
+    
   return sm

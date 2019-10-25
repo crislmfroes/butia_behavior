@@ -2,7 +2,7 @@
 import rospy
 import smach
 
-from butia_behavior.machines import getPickUpMachine
+from butia_behavior.machines import getPickUpMachine, getHandOverMachine
 
 if __name__ == '__main__':
   rospy.init_node('pickup')
