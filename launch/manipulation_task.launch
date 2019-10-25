@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find butia_world)/launch/pose_manipulation.launch" />
+  <include file="$(find butia_door_checking)/launch/wait_door.launch" />
+
+  <node name="butia_manipulation_arm_control_node" pkg="butia_manipulation_kinematics" type="butia_manipulation_arm_control.py" output="screen" />
+</launch>
