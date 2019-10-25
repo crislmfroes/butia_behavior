@@ -21,32 +21,16 @@ if __name__ == '__main__':
         'GOTO_GRIPPER_INITIAL',
         getGoToGripperMachine(0),
         transitions={
-        'succeeded': 'OPEN_GRIPPER',
-        'error': 'aborted'
-        }
-    )
-    smach.StateMachine.add(
-        'OPEN_GRIPPER',
-        getOpenGripperMachine(),
-        transitions={
         'succeeded': 'WAIT_TIME',
         'error': 'aborted'
         }
     )
     smach.StateMachine.add(
         'WAIT_TIME',
-        WaitTimeState(10),
+        WaitTimeState(15),
         transitions={
-          'succeeded': 'CLOSE_GRIPPER',
+          'succeeded': 'GOTO_1',
           'error': 'aborted'
-        }
-    )
-    smach.StateMachine.add(
-        'CLOSE_GRIPPER',
-        getCloseGripperMachine(),
-        transitions={
-        'succeeded': 'GOTO_1',
-        'error': 'aborted'
         }
     )
     sm1 = getGoToFixedMachine('exit')
@@ -59,17 +43,17 @@ if __name__ == '__main__':
         'GOTO_GRIPPER_FIRST',
         getGoToGripperMachine(1),
         transitions={
-        'succeeded': 'OPEN_GRIPPER2',
+        'succeeded': 'WAIT_HELLO2',
         'error': 'aborted'
         }
     )
     smach.StateMachine.add(
-        'OPEN_GRIPPER2',
-        getOpenGripperMachine(),
-        transitions={
+      'WAIT_HELLO2',
+      WaitTopicState('butia_speech/bhd/detected'),
+      transitions={
         'succeeded': 'GOTO_2',
-        'error': 'aborted'
-        }
+        'error': 'GOTO_GRIPPER_FIRST'
+      }
     )
     sm2 = getGoToFixedMachine('living_room')
     smach.StateMachine.add('GOTO_2', sm2, transitions={
