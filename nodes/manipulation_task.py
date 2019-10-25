@@ -4,6 +4,7 @@ import smach
 import operator
 
 from butia_behavior.machines import getWaitDoorMachine, getGoToFixedMachine, getPickUpMachine, getHandOverMachine
+from butia_behavior.states import SaySomethingState
 
 def average(counts):
   return reduce(operator.add, counts) / len(counts)
@@ -25,7 +26,7 @@ if __name__ == '__main__':
     })
     sm3 = getPickUpMachine()
     smach.StateMachine.add('PICKUP', sm3, transitions={
-      'succeeded': 'GOTO_2'
+      'succeeded': 'GOTO_2',
       'error': 'aborted'
     })
     sm4 = getGoToFixedMachine('handover')
@@ -36,7 +37,7 @@ if __name__ == '__main__':
     })
     sm5 = getHandOverMachine()
     smach.StateMachine.add('HANDOVER', sm5, transitions={
-      'succeeded': 'GOTO_3'
+      'succeeded': 'GOTO_3',
       'error': 'aborted'
     })
     sm6 = getGoToFixedMachine('exit')

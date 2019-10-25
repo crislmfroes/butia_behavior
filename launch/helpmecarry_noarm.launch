@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find butia_world)/launch/pose_helpmecarry.launch" />
+  <node name="hotword_detector_node" pkg="butia_speech" type="detector_hotword_node.py" output="screen" />
+</launch>

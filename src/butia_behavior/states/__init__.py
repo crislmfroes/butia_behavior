@@ -16,3 +16,4 @@ from butia_behavior.states.prepare_speech import PrepareSpeechState
 from butia_behavior.states.publisher_bool import PublisherBoolState
 from butia_behavior.states.publisher_float64 import PublisherFloat64State
 from butia_behavior.states.wait_topic_bool import WaitTopicBoolState
+from butia_behavior.states.wait_time import WaitTimeState
