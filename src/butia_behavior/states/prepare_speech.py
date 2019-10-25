@@ -1,5 +1,7 @@
 import smach
-import rospy
+import random
+from collections import defaultdict
+import json
 
 class PrepareSpeechState(smach.State):
   def __init__(self, prefix, string_format, sufix):
@@ -14,6 +16,14 @@ class PrepareSpeechState(smach.State):
     text += ', '.join(micro_sentences)
     text += ' ' + self.sufix
     userdata.text = text
+    clustered_count = defaultdict(list)
+    for key, value in userdata.registers.items():
+        splitted = key.split('/')
+        category = splitted[0]
+        label = splitted[1]
+        clustered_count[category].append({label: value})
     print(text)
+    print(clustered_count)
+    print(json.dumps(clustered_count, indent=4))
     return 'succeeded'
     

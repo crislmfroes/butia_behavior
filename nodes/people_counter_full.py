@@ -16,8 +16,14 @@ if __name__ == '__main__':
   with sm:
     sm1 = getWaitDoorMachine()
     smach.StateMachine.add('WAIT_DOOR', sm1, transitions={
-      'succeeded': 'GOTO_1',
+      'succeeded': 'GOTO_X',
       'error': 'aborted',
+    })
+    smx = getGoToFixedMachine('pass')
+    smach.StateMachine.add('GOTO_X', smx, transitions={
+      'succeeded': 'GOTO_1',
+      'aborted': 'aborted',
+      'preempted': 'preempted'
     })
     sm2 = getGoToFixedMachine('observation')
     smach.StateMachine.add('GOTO_1', sm2, transitions={
