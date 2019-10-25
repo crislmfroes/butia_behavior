@@ -7,3 +7,4 @@ from butia_behavior.machines.goto_gripper import getGoToGripperMachine
 from butia_behavior.machines.open_gripper import getOpenGripperMachine
 from butia_behavior.machines.pickup import getPickUpMachine
 from butia_behavior.machines.turn_gripper import getTurnGripperMachine
+from butia_behavior.machines.handover import getHandOverMachine
