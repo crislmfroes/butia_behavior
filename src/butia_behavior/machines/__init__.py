@@ -2,3 +2,8 @@ from butia_behavior.machines.goto_fixed import getGoToFixedMachine
 from butia_behavior.machines.goto import getGoToMachine
 from butia_behavior.machines.wait_door import getWaitDoorMachine
 from butia_behavior.machines.follow_person import getFollowPersonMachine
+from butia_behavior.machines.close_gripper import getCloseGripperMachine
+from butia_behavior.machines.goto_gripper import getGoToGripperMachine
+from butia_behavior.machines.open_gripper import getOpenGripperMachine
+from butia_behavior.machines.pickup import getPickUpMachine
+from butia_behavior.machines.turn_gripper import getTurnGripperMachine
