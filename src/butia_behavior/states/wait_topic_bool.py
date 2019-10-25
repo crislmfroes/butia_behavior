@@ -9,9 +9,9 @@ class WaitTopicBoolState(smach.State):
     self.topic = topic
     self.result = False
     self.event = threading.Event()
+    self.subscriber = rospy.Subscriber(self.topic, Bool, self.callback)
 
   def execute(self, userdata):
-    self.subscriber = rospy.Subscriber(self.topic, Bool, self.callback)
     self.event.clear()
     self.event.wait()
     if self.event.is_set() and self.result:
