@@ -35,16 +35,8 @@ if __name__ == '__main__':
         'OPEN_GRIPPER',
         getOpenGripperMachine(),
         transitions={
-          'succeeded': 'SAY_SOMETHING',
-          'error': 'aborted'
-        }
-    )
-    smach.StateMachine.add(
-        'SAY_SOMETHING',
-        SaySomethingState('Please, give-me the garbage'),
-        transitions={
           'succeeded': 'CLOSE_GRIPPER',
-          'error': 'CLOSE_GRIPPER'
+          'error': 'aborted'
         }
     )
     smach.StateMachine.add(
@@ -71,18 +63,10 @@ if __name__ == '__main__':
     )
     sm3 = getGoToFixedMachine('garbage2')
     smach.StateMachine.add('GOTO_3', sm3, transitions={
-      'succeeded': 'SAY_SOMETHING2',
+      'succeeded': 'CLOSE_GRIPPER2',
       'aborted': 'aborted',
       'preempted': 'preempted'
     })
-    smach.StateMachine.add(
-        'SAY_SOMETHING2',
-        SaySomethingState('Please, give-me the garbage'),
-        transitions={
-          'succeeded': 'CLOSE_GRIPPER2',
-          'error': 'aborted'
-        }
-    )
     smach.StateMachine.add(
       'CLOSE_GRIPPER2',
       getCloseGripperMachine(),

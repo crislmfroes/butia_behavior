@@ -6,7 +6,7 @@ from butia_behavior.states import SetFixedQueryState, GetTargetPoseState, GoToSt
 from goto import getGoToMachine
 
 def getGoToFixedMachine(target):
-  sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted'])
+  sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted', 'arrived'])
   with sm:
     smach.StateMachine.add(
         'SET_KEY',
@@ -25,7 +25,8 @@ def getGoToFixedMachine(target):
       transitions={
         'succeeded': 'succeeded',
         'aborted': 'aborted',
-        'preempted': 'preempted'
+        'preempted': 'preempted',
+        'arrived': 'arrived'
       },
       remapping={
         'key': 'key'

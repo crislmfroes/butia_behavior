@@ -6,7 +6,7 @@ from butia_behavior.states import SetFixedQueryState, GetPoseState, GetKeyState,
 from . import getGoToMachine
 
 def getFollowPersonMachine():
-  sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted'])
+  sm = smach.StateMachine(outcomes=['succeeded', 'aborted', 'preempted', 'arrived'])
   with sm:
     smach.StateMachine.add(
         'TRACK',
@@ -45,7 +45,8 @@ def getFollowPersonMachine():
         transitions={
         'succeeded': 'SET_QUERY',
         'aborted': 'SET_QUERY',
-        'preempted': 'preempted'
+        'preempted': 'preempted',
+        'arrived': 'arrived'
         },
         remapping={
         'key': 'key'

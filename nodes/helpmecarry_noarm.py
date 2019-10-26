@@ -19,7 +19,7 @@ if __name__ == '__main__':
     )
     smach.StateMachine.add(
         'WAIT_TIME',
-        WaitTimeState(10),
+        WaitTimeState(20),
         transitions={
           'succeeded': 'GOTO_1',
           'error': 'aborted'

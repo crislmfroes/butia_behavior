@@ -1,10 +1,14 @@
 import smach
 import rospy
 from butia_world_msgs.srv import GetPose
+import math
+
+def euclid_dist(p1, p2):
+  return math.sqrt(math.pow(p1.x - p2.x, 2)+math.pow(p1.y - p2.y, 2)+math.pow(p1.z - p2.z))
 
 class GetTargetPoseState(smach.State):
   def __init__(self, service='/butia_world/get_pose'):
-    smach.State.__init__(self, outcomes=['succeeded', 'error'], 
+    smach.State.__init__(self, outcomes=['succeeded', 'error', 'arrived'], 
                                input_keys=['key'],
                                output_keys=['pose'])
     self.service = service
@@ -14,6 +18,9 @@ class GetTargetPoseState(smach.State):
     rospy.wait_for_service(self.service)
     try:
       response = self.client('target/' + userdata.key + '/pose')
+      exit_p = self.client('exit')
+      if euclid_dist(response.pose.position, exit_pose.pose.position):
+        return 'arrived'
       userdata.pose = response.pose
       return 'succeeded'
     except rospy.ServiceException, e:
