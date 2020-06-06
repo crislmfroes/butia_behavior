@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="pickup_machine">
+
+	<executable package_path="butia_flexbe_behaviors.pickup_machine_sm" class="pickup_machineSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		Picks up object.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="go_to_gripper_machine" />
+	<contains name="open_gripper_machine" />
+	<contains name="close_gripper_machine" />
+
+	<!-- Available Parameters -->
+
+</behavior>

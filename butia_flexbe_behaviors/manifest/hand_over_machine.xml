@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="hand_over_machine">
+
+	<executable package_path="butia_flexbe_behaviors.hand_over_machine_sm" class="hand_over_machineSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		TODO: add description.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="open_gripper_machine" />
+	<contains name="go_to_gripper_machine" />
+
+	<!-- Available Parameters -->
+
+</behavior>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="good_morning_rs">
+
+	<executable package_path="butia_flexbe_behaviors.good_morning_rs_sm" class="good_morning_rsSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		Apresenta o Bom Dia Rio Grande.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="go_to_fixed_machine" />
+
+	<!-- Available Parameters -->
+
+</behavior>

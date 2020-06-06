@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="follow_person_machine">
+
+	<executable package_path="butia_flexbe_behaviors.follow_person_machine_sm" class="follow_person_machineSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		Follows person.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="go_to_machine" />
+
+	<!-- Available Parameters -->
+
+</behavior>

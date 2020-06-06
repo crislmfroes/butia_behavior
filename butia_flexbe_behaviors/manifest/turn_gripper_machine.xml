@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="turn_gripper_machine">
+
+	<executable package_path="butia_flexbe_behaviors.turn_gripper_machine_sm" class="turn_gripper_machineSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		Turns gripper.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="gripper_state" default="0" label="gripper_state" hint="Sets the gripper_state">
+			<min value="0" />
+			<max value="6.28" />
+		</param>
+
+	</params>
+
+
+</behavior>

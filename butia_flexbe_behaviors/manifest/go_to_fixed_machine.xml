@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="go_to_fixed_machine">
+
+	<executable package_path="butia_flexbe_behaviors.go_to_fixed_machine_sm" class="go_to_fixed_machineSM" />
+	<tagstring></tagstring>
+	<author>Cris Lima Froes</author>
+	<date>Fri Jun 05 2020</date>
+	<description>
+		Navigates torwards fixed location
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="go_to_machine" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="text" name="target" default="" label="target" hint="Sets the target" />
+
+	</params>
+
+
+</behavior>
